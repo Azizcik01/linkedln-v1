@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from work.views.auth import Sign_in, Sign_up
+from work.V1.auth import Sign_in, Sign_up
 
 urlpatterns = [
     

@@ -3,7 +3,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from work.models.auth import User
-from work.views.helper import No_method, UserSerializer
+from work.V1.helper import No_method, UserSerializer
 
 
 class Sign_in(GenericAPIView, No_method):
