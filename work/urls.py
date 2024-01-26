@@ -4,8 +4,7 @@ from work.V1.auth import Sign_in, Sign_up
 
 urlpatterns = [
     
-    path('admin/', admin.site.urls),
-    path('sign-in/api-v1/', Sign_in.as_view()),
-    path('sign-up/api-v1/', Sign_up.as_view()),
+    path('linkedIn/sign-in/', Sign_in.as_view()),
+    path('linkedIn/sign-up/api-v1/', Sign_up.as_view()),
 
 ]

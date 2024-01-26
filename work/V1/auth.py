@@ -8,7 +8,7 @@ from work.V1.helper import No_method, UserSerializer
 
 class Sign_in(GenericAPIView, No_method):
 
-    parser_classes = AllowAny,
+    # parser_classes = AllowAny,
 
     def post(self, request):
         data = request.data
