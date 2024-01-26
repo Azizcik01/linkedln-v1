@@ -8,12 +8,13 @@ from work.V1.helper import No_method, UserSerializer
 
 class Sign_in(GenericAPIView, No_method):
 
-    # parser_classes = AllowAny,
+    permission_classes = AllowAny,
 
     def post(self, request):
         data = request.data
+        print(data)
 
-        if 'email' or 'password' not in data:
+        if 'email' not in data or 'password' not in data:
             return Response({
                 'error':'To\'liq ma\'lumot berilmadi! '
             })
