@@ -13,10 +13,6 @@ class Post(models.Model):
     about = models.TextField()
 
 
-class Chat(models.Model):
-    pass
-
-
 class Friend(models.Model):
     requester = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='follower')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='user')

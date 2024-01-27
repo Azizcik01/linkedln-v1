@@ -1,7 +1,7 @@
+from rest_framework.authtoken.models import Token
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.authtoken.models import Token
 from work.models.auth import User
 from work.V1.helper import No_method, UserSerializer
 
