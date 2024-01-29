@@ -33,7 +33,7 @@ class Sign_in(GenericAPIView, No_method):
         token = Token.objects.get_or_create(user=user)[0]
 
         return Response({
-            'token':token.key
+            'token': token.key
         })
 
 
@@ -55,5 +55,5 @@ class Sign_up(GenericAPIView, No_method):
         token = Token.objects.create(user=user)
 
         return Response({
-            'token':token.key
+            'token': token.key
         })
