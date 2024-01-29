@@ -34,7 +34,7 @@ class Friend(models.Model):
     is_confirmed = models.BooleanField(default=False)
 
 
-class AddExperience(models.Model):
+class Experience(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     Company = models.CharField(max_length=256)
     title = models.CharField(max_length=256)

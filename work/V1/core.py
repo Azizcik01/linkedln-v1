@@ -3,8 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import generics, permissions
 
-from work.models import Profile, AddExperience, Post
-from work.serializers import ProfileSerializer, AddExperienceSerializer, PostSerializer
+from work.models import Profile, Post, Experience
+from work.serializers import ProfileSerializer, ExperienceSerializer, PostSerializer
 
 
 class ProfileView(GenericAPIView):
@@ -43,14 +43,14 @@ class ProfileView(GenericAPIView):
             return Response({"natija": "Bunaqa profile mavjud emas "})
 
 
-class AddExperienceView(GenericAPIView):
+class ExperienceView(GenericAPIView):
     permission_classes = IsAuthenticated
-    serializer_class = AddExperienceSerializer
+    serializer_class = ExperienceSerializer
 
     def get(self, request, pk=None, *args, **kwargs):
         if pk:
             try:
-                return Response(AddExperience.objects.get(pk=pk).format())
+                return Response(Experience.objects.get(pk=pk).format())
             except:
                 return Response({"error": "Bunaqa experience mavjud emas"})
 
@@ -63,7 +63,7 @@ class AddExperienceView(GenericAPIView):
 
     def put(self, request, pk, *args, **kwargs):
         data = request.data
-        root = AddExperience.objects.filter(pk=pk).first()
+        root = Experience.objects.filter(pk=pk).first()
         if not root:
             return Response({"error": "bunaqa experince yoq"})
         serializer = self.serializer_class(data=data, instance=root, partial=True)
@@ -73,7 +73,7 @@ class AddExperienceView(GenericAPIView):
 
     def delete(self, request, pk):
         try:
-            AddExperience.objects.get(pk=pk).delete()
+            Experience.objects.get(pk=pk).delete()
             return Response({"natija": "bajarildi"})
         except:
             return Response({"error": "aldama jigar"})

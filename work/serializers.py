@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from work.models import Profile, Post, Friend, AddExperience, PostImgs
+from work.models import Profile, Post, Friend, Experience, PostImgs
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -21,9 +21,9 @@ class FriendSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class AddExperienceSerializer(serializers.ModelSerializer):
+class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AddExperience
+        model = Experience
         fields = "__all__"
 
 
